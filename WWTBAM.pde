@@ -17,6 +17,7 @@ int difficulty;
 Textlabel Atext;
 int points = 0;
 String lines[] = loadStrings("http://roast.hackerswagger.com/mill.txt");
+String currentGuess;
 int q = 0;
 String guess;
 String textValue = "";
@@ -111,7 +112,7 @@ public void setupQuestions(){
                    .setPosition(int(width/2-width/8),5)
                    .setSize(int(width/4),int(height/16))
                    .setTriggerEvent(Bang.RELEASE)
-                   .setId(11)
+                   .setId(5)
                ;
 }
 
@@ -148,12 +149,12 @@ public void controlEvent(ControlEvent theEvent) {
     }
   }
   else if(theEvent.isAssignableFrom(Button.class)){
-    print("button clicked "+theEvent.getController().getName()+" ");
+    print("button clicked id "+theEvent.getController().getId());
     switch(theEvent.getController().getId()){
-      case(1): guess = "A"; finalAns.play(); break;
-      case(2): guess = "B"; finalAns.play(); break;
-      case(3): guess = "C"; finalAns.play(); break;
-      case(4): guess = "D"; finalAns.play(); break;
+      case(1): guess = "A"; finalAns.play(); currentGuess = "A"; break;
+      case(2): guess = "B"; finalAns.play(); currentGuess = "B"; break;
+      case(3): guess = "C"; finalAns.play(); currentGuess = "C"; break;
+      case(4): guess = "D"; finalAns.play(); currentGuess = "D"; break;
       case(10):
         println("roooor");
         intro.hide();
@@ -161,8 +162,12 @@ public void controlEvent(ControlEvent theEvent) {
         updateAnswers(0);
       break;
       case(11): 
-        check(guess); 
+        check(currentGuess); 
       break;
+    }
+  }else{
+    switch(theEvent.getController().getId()){
+      case (5): check(currentGuess);break;
     }
   }
 }
