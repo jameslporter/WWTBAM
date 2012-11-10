@@ -1,0 +1,18 @@
+C is the answer to this question
+A
+B
+C
+D
+C
+Second Question: A is the answer to this question
+A words
+B more words
+C less
+D derp
+A words
+Third Question: What is A+B?
+A isn't the answer
+B isn't the answer
+C is the answer
+D isn't the answer
+C is the answer
